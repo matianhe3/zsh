@@ -48,8 +48,9 @@ export PATH=$PATH:$HOME/.config/emacs/bin
 
 # Alias
 #
-alias ll="ls -al"
-alias la="ls -a"
+alias ls="ls --color=auto"
+alias ll="ls -al --color=auto"
+alias la="ls -a --color=auto"
 alias tailf="tail -f"
 
 # History
