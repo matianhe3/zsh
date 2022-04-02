@@ -4,10 +4,12 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # HighLight
+#
 if [ ! -r "${HOME}/.cache/zsh-syntax-highlighting" ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting \
   ${HOME}/.cache/zsh-syntax-highlighting
@@ -15,6 +17,7 @@ fi
 source "${HOME}/.cache/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Suggest
+#
 if [ ! -r "${HOME}/.cache/zsh-autosuggestions" ]; then
   echo "null s"
   git clone https://github.com/zsh-users/zsh-autosuggestions \
@@ -23,6 +26,7 @@ fi
 source "${HOME}/.cache/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Complete
+#
 if [ ! -r "${HOME}/.cache/zsh-completions" ]; then
   git clone https://github.com/zsh-users/zsh-completions \
   ${HOME}/.cache/zsh-completions
@@ -30,6 +34,7 @@ fi
 source "${HOME}/.cache/zsh-completions/zsh-completions.plugin.zsh"
 
 # Theme
+#
 if [ ! -r "${HOME}/.cache/Powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   ${HOME}/.cache/powerlevel10k
@@ -40,6 +45,7 @@ source "${HOME}/.cache/powerlevel10k/powerlevel10k.zsh-theme"
 [[ ! -f ~/.cache/p10k.zsh ]] || source ~/.cache/p10k.zsh
 
 # FASD
+#
 if [ ! "$(command -v fasd)" ]; then
   if [ "$(uname)" = "Darwin" ]; then
     brew install fasd
@@ -54,6 +60,23 @@ fi
 source "${fasd_cache}"
 unset fasd_cache
 
+# FZF
+#
+if [ ! -s "${HOME}/.fzf/bin/fzf"  ]; then
+  echo "ok"
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf &&
+  ~/.fzf/install
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ ! "$PATH" == */Users/matianhe/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/Users/matianhe/.fzf/bin"
+fi
+
+[[ $- == *i* ]] && source "/Users/matianhe/.fzf/shell/completion.zsh" 2> /dev/null
+
+source "/Users/matianhe/.fzf/shell/key-bindings.zsh"
 
 # Proxy
 #
@@ -92,7 +115,8 @@ if [ ! -r "${HOME}/.cache/zsh_history" ]
 then
   touch "${HOME}/.cache/zsh_history"
 fi
-export HISTSIZE=2000
 export HISTFILE="$HOME/.cache/zsh_history"
+export HISTSIZE=2000
 export SAVEHIST=$HISTSIZE
+alias history="history 1"
 
