@@ -35,7 +35,7 @@ source "${HOME}/.cache/zsh-completions/zsh-completions.plugin.zsh"
 
 # Theme
 #
-if [ ! -r "${HOME}/.cache/Powerlevel10k" ]; then
+if [ ! -r "${HOME}/.cache/powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   ${HOME}/.cache/powerlevel10k
 fi
@@ -76,7 +76,7 @@ fi
 
 [[ $- == *i* ]] && source "/Users/matianhe/.fzf/shell/completion.zsh" 2> /dev/null
 
-source "/Users/matianhe/.fzf/shell/key-bindings.zsh"
+source "${HOME}/.fzf/shell/key-bindings.zsh"
 
 # Proxy
 #
