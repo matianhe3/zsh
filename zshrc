@@ -18,6 +18,7 @@ if [ "$(uname)" = "Darwin" ]; then
   PIP_PATH="${HOME}/Library/Python/3.9/bin"
 elif [[ $(uname -a) =~ "arch" ]]; then
   PIP_PATH=""
+fi
 export PATH=$PATH:$PIP_PATH
 
 # GO PATH
