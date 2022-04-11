@@ -12,7 +12,15 @@ function unproxy() {
   unset all_proxy;
 }
 
-# GOPATH
+# PIP PATH
+#
+if [ "$(uname)" = "Darwin" ]; then
+  PIP_PATH="${HOME}/Library/Python/3.9/bin"
+elif [[ $(uname -a) =~ "arch" ]]; then
+  PIP_PATH=""
+export PATH=$PATH:$PIP_PATH
+
+# GO PATH
 #
 export GOPATH=$HOME/go
 export GOBIN="$GOPATH/bin"
