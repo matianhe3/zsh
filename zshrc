@@ -12,12 +12,16 @@ function unproxy() {
   unset all_proxy;
 }
 
+# LSP Lua
+#
+export PATH=$PATH:"${HOME}/.local/lua-language-server/bin"
+
 # PIP PATH
 #
 if [ "$(uname)" = "Darwin" ]; then
   PIP_PATH="${HOME}/Library/Python/3.9/bin"
 elif [[ $(uname -a) =~ "arch" ]]; then
-  PIP_PATH=""
+  PIP_PATH="${HOME}/.local/bin"
 fi
 export PATH=$PATH:$PIP_PATH
 
