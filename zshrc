@@ -33,7 +33,7 @@ export PATH=$PATH:$GOBIN
 
 # Doom PATH
 #
-export PATH=$PATH:$HOME/.config/emacs/bin
+# export PATH=$PATH:$HOME/.config/emacs/bin
 
 # Alias
 #
@@ -44,11 +44,11 @@ alias tailf="tail -f"
 
 # History
 #
-if [ ! -r "${HOME}/.cache/zsh_history" ]
+if [ ! -r "${HOME}/.zsh_history" ]
 then
-  touch "${HOME}/.cache/zsh_history"
+  touch "${HOME}/.zsh_history"
 fi
-export HISTFILE="$HOME/.cache/zsh_history"
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=2000
 export SAVEHIST=$HISTSIZE
 alias history="history 1"
