@@ -41,6 +41,9 @@ alias ls="ls --color=auto"
 alias ll="ls -al --color=auto"
 alias la="ls -a --color=auto"
 alias tailf="tail -f"
+# kitty shortcat
+alias icat="kitty +kitten icat"
+alias diff="kitty +kitten diff"
 
 # History
 #
