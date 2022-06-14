@@ -16,14 +16,14 @@ function unproxy() {
 #
 export PATH=$PATH:"${HOME}/.local/lua-language-server/bin"
 
-# PIP PATH
+# PIP, adb PATH
 #
 if [ "$(uname)" = "Darwin" ]; then
-  PIP_PATH="${HOME}/Library/Python/3.9/bin"
+  A_PATH="${HOME}/Library/Python/3.9/bin:${HOME}/Library/Android/sdk/platform-tools"
 elif [[ $(uname -a) =~ "arch" ]]; then
-  PIP_PATH="${HOME}/.local/bin"
+  A_PATH="${HOME}/.local/bin"
 fi
-export PATH=$PATH:$PIP_PATH
+export PATH=$PATH:$A_PATH
 
 # GO PATH
 #
